@@ -16,7 +16,7 @@ Below are the available operation to a stack:
 class Stack():
 
 #this function will create a new stack; the stack is implemented using list data structure of python
-    def __init(self):
+    def __init__(self):
         self.items = []
 
     def isempty(self):
@@ -26,15 +26,23 @@ class Stack():
         self.items.append(item)  #adding the parameter item at the top of the stack
 
     def pop(self):
-        self.items.pop(len(self.items)-1) #remove the last element existing element from the stack
+        return self.items.pop(len(self.items)-1) #remove the last element existing element from the stack
 
     def peek(self):
-        self.items[len(self.items)-1] #will return the last element from the stack, it does not modify the stack
+        return self.items[len(self.items)-1] #will return the last element from the stack, it does not modify the stack
 
     def size(self):
-        self.len(self.items) #will return the size of the stack
+        return len(self.items) #will return the size of the stack
 
-
-
+s = Stack()
+s.push(3)
+print(s.isempty())
+s.push(5)
+s.push(8)
+s.push(2)
+print(s.peek())
+print(s.size())
+print(s.pop())
+print(s.size())
 
     
