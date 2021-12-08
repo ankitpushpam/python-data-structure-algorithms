@@ -30,3 +30,31 @@
 
 
 """
+
+def searchForRange(array, target):
+	finalrange = [-1, -1]
+	altertedBinarySearch(array,target,0,len(array)-1,finalrange,True)
+	altertedBinarySearch(array,target,0,len(array)-1,finalrange,False)
+	return finalrange
+
+def altertedBinarySearch(array,target,left,right,finalrange,goleft):
+	if left > right:
+		return
+	middle = (left+right)//2
+	if target < array[middle]:
+		altertedBinarySearch(array,target,left,middle-1,finalrange,goleft)
+	elif target > array[middle]:
+		altertedBinarySearch(array,target,middle+1,right,finalrange,goleft)
+	else:
+		if goleft:
+			if middle == 0 or array[middle-1] != target:
+				finalrange[0] = middle
+			else:
+				altertedBinarySearch(array,target,left,middle-1,finalrange,goleft)
+		else:
+			if middle == len(array) - 1 or array[middle+1] != target:
+				finalrange[1] = middle
+			else:
+				altertedBinarySearch(array,target,middle+1,right,finalrange,goleft)
+				
+
